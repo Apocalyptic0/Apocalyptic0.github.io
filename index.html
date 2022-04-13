@@ -298,7 +298,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-11 23:57:01" itemprop="dateModified" datetime="2022-04-11T23:57:01+08:00">2022-04-11</time>
+      <time title="修改时间：2022-04-13 23:29:12" itemprop="dateModified" datetime="2022-04-13T23:29:12+08:00">2022-04-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -388,26 +388,56 @@
 <li>可进行的动作</li>
 <li><em><strong>产生计划plan</strong></em></li>
 </ul>
-<h1 id="世界状态"><a href="#世界状态" class="headerlink" title="世界状态"></a>世界状态</h1><ul>
+<h1 id="世界状态类"><a href="#世界状态类" class="headerlink" title="世界状态类"></a>世界状态类</h1><ul>
 <li>用字典存储世界状态</li>
-<li>完成了基本世界和世界状态的编写<br><a target="_blank" rel="noopener" href="https://connect-cdn-public-prd.unitychina.cn/h1/20210302/7e3a0e6f-7063-45d6-a6cf-a66960372ddd/WorldStatesScripts.zip">相关源代码</a></li>
+<li>完成了基本世界和世界状态的编写</li>
 <li>就是字典的一些基本函数，较为简单<blockquote>
 <p>新学习到的：</p>
 <blockquote>
 <p>使字典在unity上序列化表示<br>只读字段<br>需要复习的<br>unity中的Dictionary相关知识<br>set和get</p>
 </blockquote>
 </blockquote>
-<h1 id="动作"><a href="#动作" class="headerlink" title="动作"></a>动作</h1></li>
+<h1 id="动作类"><a href="#动作类" class="headerlink" title="动作类"></a>动作类</h1></li>
 <li>awaken()函数：在游戏对象生成时调用NavMeshAgent组件，写入字典</li>
 <li>IsAchevableGiven函数通过遍历字典preconditions，查询是否于此时的状态（上一个动作的effect）符合，函数如下：<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">IsAchievableGiven</span>(<span class="params">Dictionary&lt;<span class="built_in">string</span>,<span class="built_in">int</span>&gt; conditions</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">foreach</span>(KeyValuePair&lt;<span class="built_in">string</span>,<span class="built_in">int</span>&gt;p <span class="keyword">in</span> preconditions)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (!conditions.ContainsKey(p.Key))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<a target="_blank" rel="noopener" href="https://connect-cdn-public-prd.unitychina.cn/h1/20210302/832e0512-0ed2-4731-8222-ad031a93883f/ActionScript.zip">相关源代码</a><blockquote>
+<blockquote>
 <p>新学到的：<br>抽象类！</p>
 <blockquote>
 <p>abstract 不可以和static、virtual、final、native一起使用<br>声明为 abstract 成员可以不包括实现代码，但只要类中还有未实现的抽象成员(抽象方法)，那么这个类就是一个抽象类，抽象类的对象不能被实例化，通常作为被强制继承类必须实现某一成员，抽象类必须要有派生子类。并且，如果子类没有实现抽象类的所有方法，则子类也成为一个抽象类。<br>abstract方法只有方法头的声明，而用一个分号来代替方法体的定义；至于方法体的具体实现，那是由当前类的不同子类在他们各自的类定义中完成的。</p>
 </blockquote>
 </blockquote>
+<h1 id="Agent类"><a href="#Agent类" class="headerlink" title="Agent类"></a>Agent类</h1></li>
+<li>system.Linq，万能的查询语句，对数组，List，Dictionary进行高效操作(似乎有点像数据库的语法?)<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39108767/article/details/86648448">参考链接</a></li>
+<li>子目标类(SubGoal)中包含：查询该目标的字典，remove用于判断目标执行后是否仍保留。比如病人看病的目标在痊愈后就取消了，但护士休息的目标在执行后仍会保留</li>
+<li>Start函数中读取该对象的所有GAction类并存放在List中</li>
+<li>LateUpdate函数在Update后执行</li>
+</ul>
+<hr>
+<ul>
+<li>GPlanner部分会比较困难<br>2022&#x2F;4&#x2F;12&#x2F;22:46 累了，傻逼英语小组作业</li>
+</ul>
+<h1 id="Gplanner类"><a href="#Gplanner类" class="headerlink" title="Gplanner类"></a>Gplanner类</h1><ol>
+<li>定义了节点Node类，包括父节点，目前花费，状态和动作</li>
+<li>plan函数</li>
+</ol>
+<ul>
+<li><p>List用于存储所有可执行的动作</p>
+</li>
+<li><p>找到花费最少的路径，存储在result中</p>
+</li>
+<li><p>最后写入queue，返回</p>
+</li>
+<li><p>BuildGraph函数进行递归，为每一个可以执行的行动产生的结果建立一个新节点，若找到(GoalAchieved)在leave中加入该节点，若没找到，则进行递归，以新节点为父节点继续寻找</p>
+</li>
+<li><p>GoalAchieved函数，遍历所有goal的条件，若所有条件都在现在的状态中，则达成目标</p>
+</li>
+<li><p>ActionSubset函数，把除了当前已执行的动作以外的所有动作写入subset，继续参与递归</p>
+</li>
+<li><p>补一下忘了的insert函数，在把元素插入第i个元素之前，其余以此向后移动，本例中以此在n前插入其父节点，以便于存入队列中</p>
 </li>
 </ul>
+<hr>
+<p>好厉害的AI寻路，看到结果的一刻真的被震撼到，已经等不及要深入学习了，但是现在已经很晚了诶<br>2022&#x2F;4&#x2F;13&#x2F;23:27晚安！</p>
 
       
     </div>
