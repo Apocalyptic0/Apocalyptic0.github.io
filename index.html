@@ -298,7 +298,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-13 23:29:12" itemprop="dateModified" datetime="2022-04-13T23:29:12+08:00">2022-04-13</time>
+      <time title="修改时间：2022-04-14 17:29:01" itemprop="dateModified" datetime="2022-04-14T17:29:01+08:00">2022-04-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -438,6 +438,23 @@
 </ul>
 <hr>
 <p>好厉害的AI寻路，看到结果的一刻真的被震撼到，已经等不及要深入学习了，但是现在已经很晚了诶<br>2022&#x2F;4&#x2F;13&#x2F;23:27晚安！</p>
+<h1 id="GAgent的LateUpdate函数"><a href="#GAgent的LateUpdate函数" class="headerlink" title="GAgent的LateUpdate函数"></a>GAgent的LateUpdate函数</h1><ul>
+<li>如果当前可执行的动作已到达目标，即停止执行该动作</li>
+<li>调入planner部分：按优先级搜索所有该对象的目标</li>
+<li>对每一个子目标的每一步生成一个actionQueue，若找到路径，将该子目标设为当前子目标后退出循环</li>
+<li>下一部分是在执行完某一动作后，若该动作需要在执行后移除(remove)则将其移除；清空planner</li>
+<li>下一部分是执行动作部分，先将当前将要执行的步移出队列放入当前动作，随后寻找目标，调用AI寻路</li>
+<li>两个抽象函数都是用于控制动作是否进行，在有需要时调用。PrePerform控制动作开始，PostPerform控制动作结束</li>
+<li>关于如何从一个动作切换到另一个动作</li>
+</ul>
+<ol>
+<li>在一个动作正在执行时，即currentAction!&#x3D;null&amp;&amp;currentAction.runing进入下面部分：<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(currentAction!=<span class="literal">null</span>&amp;&amp;currentAction.running)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(currentAction.agent.hasPath&amp;&amp;currentAction.agent.remainingDistance&lt;<span class="number">1f</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(!invoked)</span><br><span class="line">                &#123;</span><br><span class="line">                    Invoke(<span class="string">&quot;CompleteAction&quot;</span>, currentAction.duration);</span><br><span class="line">                    invoked = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125; </span><br></pre></td></tr></table></figure></li>
+<li>在这里面，如果还未到达终点，则直接return</li>
+<li>若到达终点，在规定的秒数后调用CompleteAction完成动作，将running设为false，下一次执行时，不会进入该if，转而寻找执行下一个动作</li>
+</ol>
+<p><strong>其实有代码还是很好理解的，不过构建整个过程真的很了不起</strong></p>
+<hr>
+<p>接下来，在unity面板中链接每个对象的各个动作就行，非常简单</p>
 
       
     </div>
