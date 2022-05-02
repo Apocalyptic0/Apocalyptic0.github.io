@@ -20,25 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"apocalyptic0.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"enable":true,"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="本网站主要用于个人记录学习笔记和进度，欢迎来访！">
-<meta property="og:type" content="website">
+    <meta name="description" content="计算机图形学学习记录Bresenham画线算法首先编写一个画线的简单算法： 123456789void line(int x0,int y0,int x1,int y1,TGAImage &amp;image, TGAColor color)&amp;#123;   for(float t&#x3D;0.;t&lt;1.;t+&#x3D;.01)   &amp;#123;       int x&#x3D;x0+(x1-x0)*t;">
+<meta property="og:type" content="article">
 <meta property="og:title" content="&lt;font color&#x3D;blue&gt;Apocalyptic&#39;s Blog&lt;&#x2F;font&gt;">
-<meta property="og:url" content="http://apocalyptic0.github.io/index.html">
+<meta property="og:url" content="http://apocalyptic0.github.io/2022/05/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="&lt;font color&#x3D;blue&gt;Apocalyptic&#39;s Blog&lt;&#x2F;font&gt;">
-<meta property="og:description" content="本网站主要用于个人记录学习笔记和进度，欢迎来访！">
+<meta property="og:description" content="计算机图形学学习记录Bresenham画线算法首先编写一个画线的简单算法： 123456789void line(int x0,int y0,int x1,int y1,TGAImage &amp;image, TGAColor color)&amp;#123;   for(float t&#x3D;0.;t&lt;1.;t+&#x3D;.01)   &amp;#123;       int x&#x3D;x0+(x1-x0)*t;">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-02T09:42:31.718Z">
+<meta property="article:modified_time" content="2022-05-02T09:42:31.963Z">
 <meta property="article:author" content="Apocalyptic!">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://apocalyptic0.github.io/">
+<link rel="canonical" href="http://apocalyptic0.github.io/2022/05/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://apocalyptic0.github.io/2022/05/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/","path":"2022/05/02/计算机图形学学习记录/","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title><font color=blue>Apocalyptic's Blog</font></title>
+<title> | <font color=blue>Apocalyptic's Blog</font></title>
   
 
 
@@ -68,7 +70,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title"><font color=blue>Apocalyptic's Blog</font></h1>
+      <p class="site-title"><font color=blue>Apocalyptic's Blog</font></p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description"><font color=green>Time is over!</font></p>
@@ -101,7 +103,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -114,6 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">计算机图形学学习记录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bresenham%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">Bresenham画线算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A1%AB%E5%85%85%E4%B8%89%E8%A7%92%E5%BD%A2"><span class="nav-number">1.2.</span> <span class="nav-text">填充三角形</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -173,16 +176,17 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://apocalyptic0.github.io/2022/05/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -196,13 +200,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | <font color=blue>Apocalyptic's Blog</font>">
+      <meta itemprop="name" content=" | <font color=blue>Apocalyptic's Blog</font>">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -225,7 +229,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="计算机图形学学习记录"><a href="#计算机图形学学习记录" class="headerlink" title="计算机图形学学习记录"></a>计算机图形学学习记录</h1><h2 id="Bresenham画线算法"><a href="#Bresenham画线算法" class="headerlink" title="Bresenham画线算法"></a>Bresenham画线算法</h2><p>首先编写一个画线的简单算法：</p>
+        <h1 id="计算机图形学学习记录"><a href="#计算机图形学学习记录" class="headerlink" title="计算机图形学学习记录"></a>计算机图形学学习记录</h1><h2 id="Bresenham画线算法"><a href="#Bresenham画线算法" class="headerlink" title="Bresenham画线算法"></a>Bresenham画线算法</h2><p>首先编写一个画线的简单算法：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">line</span><span class="params">(<span class="type">int</span> x0,<span class="type">int</span> y0,<span class="type">int</span> x1,<span class="type">int</span> y1,TGAImage &amp;image, TGAColor color)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">for</span>(<span class="type">float</span> t=<span class="number">0.</span>;t&lt;<span class="number">1.</span>;t+=<span class="number">.01</span>)</span><br><span class="line">   &#123;</span><br><span class="line">       <span class="type">int</span> x=x0+(x1-x0)*t;</span><br><span class="line">       <span class="type">int</span> y=y0+(y1-y0)*t;</span><br><span class="line">       image.<span class="built_in">set</span>(x,y,color);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>t的变化决定采样的数量，当t变为.1时，线段会变成连续的点<br>该方法将线段均分，找到每一部分的点设置颜色，但每个点的数据都是浮点型，效率不高。<br>一种简单的修改方法如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">line</span><span class="params">(<span class="type">int</span> x0,<span class="type">int</span> y0,<span class="type">int</span> x1,<span class="type">int</span> y1,TGAImage &amp;image, TGAColor color)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">for</span>(<span class="type">int</span> x=x0;x&lt;=x1;x++)</span><br><span class="line">   &#123;</span><br><span class="line">       <span class="type">float</span> t=(x-x0)/(<span class="type">float</span>)(x1-x0);</span><br><span class="line">       <span class="type">int</span> y=y0*(<span class="number">1.</span>-t)+y1*t;</span><br><span class="line">       image.<span class="built_in">set</span>(x,y,color);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -269,7 +273,6 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">triangle</span><span class="params">(Vec2i *pts, TGAImage &amp;image, TGAColor color)</span> </span>&#123; </span><br><span class="line">    <span class="function">Vec2i <span class="title">bboxmin</span><span class="params">(image.get_width()<span class="number">-1</span>,  image.get_height()<span class="number">-1</span>)</span></span>; </span><br><span class="line">    <span class="function">Vec2i <span class="title">bboxmax</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>)</span></span>; </span><br><span class="line">    <span class="function">Vec2i <span class="title">clamp</span><span class="params">(image.get_width()<span class="number">-1</span>, image.get_height()<span class="number">-1</span>)</span></span>; </span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>; i&lt;<span class="number">3</span>; i++) &#123; </span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>; j&lt;<span class="number">2</span>; j++) &#123; </span><br><span class="line">            bboxmin[j] = std::<span class="built_in">max</span>(<span class="number">0</span>,        std::<span class="built_in">min</span>(bboxmin[j], pts[i][j])); </span><br><span class="line">            bboxmax[j] = std::<span class="built_in">min</span>(clamp[j], std::<span class="built_in">max</span>(bboxmax[j], pts[i][j])); </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">    Vec2i P; </span><br><span class="line">    <span class="keyword">for</span> (P.x=bboxmin.x; P.x&lt;=bboxmax.x; P.x++) &#123; </span><br><span class="line">        <span class="keyword">for</span> (P.y=bboxmin.y; P.y&lt;=bboxmax.y; P.y++) &#123; </span><br><span class="line">            Vec3f bc_screen  = <span class="built_in">barycentric</span>(pts, P); </span><br><span class="line">            <span class="keyword">if</span> (bc_screen.x&lt;<span class="number">0</span> || bc_screen.y&lt;<span class="number">0</span> || bc_screen.z&lt;<span class="number">0</span>) <span class="keyword">continue</span>; </span><br><span class="line">            image.<span class="built_in">set</span>(P.x, P.y, color); </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>注意包围盒的处理，省去了屏幕外的部分，如果数据给定的点在屏幕外，则不参与计算，节省了计算时间</p>
 
-      
     </div>
 
     
@@ -277,344 +280,22 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/11/DataStructure/" rel="prev" title="数据结构学习笔记">
+                  <i class="fa fa-chevron-left"></i> 数据结构学习笔记
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://apocalyptic0.github.io/2022/04/11/DataStructure/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/avatar/avatar.jpg">
-      <meta itemprop="name" content="Apocalyptic!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="<font color=blue>Apocalyptic's Blog</font>">
-      <meta itemprop="description" content="本网站主要用于个人记录学习笔记和进度，欢迎来访！">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | <font color=blue>Apocalyptic's Blog</font>">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/11/DataStructure/" class="post-title-link" itemprop="url">数据结构学习笔记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-04-11 00:00:00 / 修改时间：23:57:01" itemprop="dateCreated datePublished" datetime="2022-04-11T00:00:00+08:00">2022-04-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/notes/" itemprop="url" rel="index"><span itemprop="name">notes</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="数据结构学习笔记"><a href="#数据结构学习笔记" class="headerlink" title="数据结构学习笔记"></a>数据结构学习笔记</h1><h2 id="README"><a href="#README" class="headerlink" title="README"></a>README</h2><p>该篇用于记录本人学习数据结构的笔记<br>在建立时(2022&#x2F;4&#x2F;11)已完成了链表，栈，队列的学习<br>参考书籍：《数据结构》张珊靓，朱宗胜主编；成都：电子科技大学出版社<br>持续更新中~~~<br>本周(2022&#x2F;4&#x2F;11)有game组的第一次作业，更新会稍微推迟<br>贴张骚图<br><img src="https://i0.hdslb.com/bfs/article/cff3145e9917376c537f038b1bf3c831ac7bc9ed.png@942w_498h_progressive.webp" alt="骚图"></p>
-<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://apocalyptic0.github.io/2022/04/10/GOAP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/avatar/avatar.jpg">
-      <meta itemprop="name" content="Apocalyptic!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="<font color=blue>Apocalyptic's Blog</font>">
-      <meta itemprop="description" content="本网站主要用于个人记录学习笔记和进度，欢迎来访！">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | <font color=blue>Apocalyptic's Blog</font>">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/10/GOAP/" class="post-title-link" itemprop="url">GOAP学习笔记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-04-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-10T00:00:00+08:00">2022-04-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-02 17:44:57" itemprop="dateModified" datetime="2022-05-02T17:44:57+08:00">2022-05-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Homework-notes/" itemprop="url" rel="index"><span itemprop="name">Homework,notes</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="GOAP学习笔记"><a href="#GOAP学习笔记" class="headerlink" title="GOAP学习笔记"></a>GOAP学习笔记</h1>
-<h2 id="README"><a href="#README" class="headerlink" title="README"></a>README</h2><p>从今天（2022.4.10）开始往后的一周，我将完成这部分内容以作为联创game组的第一次作业<br>第二次更新时间：2022&#x2F;4&#x2F;11&#x2F;21:10<br>第三次更新时间：2022&#x2F;4&#x2F;15&#x2F;22:35<br>持续更新中~~~<br><u>这里是<a target="_blank" rel="noopener" href="https://learn.unity.com/project/goal-driven-behaviour?uv=2019.4">参考视频</a></u></p>
-<h1 id="GOAP简介"><a href="#GOAP简介" class="headerlink" title="GOAP简介"></a>GOAP简介</h1><h2 id="Goal-Oriented-Action-Planning"><a href="#Goal-Oriented-Action-Planning" class="headerlink" title="Goal Oriented Action Planning"></a>Goal Oriented Action Planning</h2><ul>
-<li>一种AI技术</li>
-<li>由Jeff Orkin于2000年代初设计</li>
-<li>应用于游戏领域来控制NPC的行为</li>
-<li><a target="_blank" rel="noopener" href="http://alumni.media.mit.edu/~jorkin/goap.html">点击以获取更多相关内容</a><h3 id="FSM"><a href="#FSM" class="headerlink" title="FSM"></a>FSM</h3></li>
-<li>GOAP具有FSM的所有要素，但他们的实现方式非常不同</li>
-<li>都是用graph实现，但在GOAP中行为和目标是分开的</li>
-<li>在GOAP中所有链接都将被删除</li>
-<li>当一个目标被提出时，基于代理和世界的状态从所有可用任务中选择适当的行动方案<h3 id="Precondition-and-Effect"><a href="#Precondition-and-Effect" class="headerlink" title="Precondition and Effect"></a>Precondition and Effect</h3></li>
-<li>GOAP中的每一个动作都有一个前提条件和一个效果</li>
-<li>前提条件是动作开始前必须满足的状态</li>
-<li>效果是动作发生后该对象的状态的改变</li>
-<li>precondition和effect想匹配得到action chains</li>
-</ul>
-<p><img src="/2022/04/10/GOAP/graph/example.png" alt="example"></p>
-<blockquote>
-<p>在本例中，目标为hungry&#x3D;false</p>
-<blockquote>
-<p>一个代理不会进行任何行动直到给一个目标<br><em>目标是一个代理的最终状态</em>(而不是开始)*</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>加入条件：有原料为真，有电话号码为真<br>从目标返回，通过chain看是否能实现<br>如果不能在最后找到匹配的状态，就放弃这个plan</p>
-</blockquote>
-<blockquote>
-<p>分别从时间和空间考虑这个example的两个plan</p>
-</blockquote>
-<h2 id="conceptualization"><a href="#conceptualization" class="headerlink" title="conceptualization"></a>conceptualization</h2><ul>
-<li><font color="red"><u>with actions goals and world states being fed into a planner</u></font></li>
-<li><font color="green">the planner chains the actions together according to the goals and starting states,to determine which plans are achievable.</font></li>
-</ul>
-<h1 id="搭建GOAP环境"><a href="#搭建GOAP环境" class="headerlink" title="搭建GOAP环境"></a>搭建GOAP环境</h1><blockquote>
-<p>很轻松的部分，跟着视频来就行<br>主要提两点</p>
-<blockquote>
-<p>各个区域(area)实际是去掉渲染器和碰撞器的立方体<br><a target="_blank" rel="noopener" href="https://connect-cdn-public-prd.unitychina.cn/h1/20210302/1817c217-51d5-4549-b939-0f33ac56d4ec/GOAP_HospitalStarter.zip">相关资源</a></p>
-</blockquote>
-</blockquote>
-<h1 id="对象处理的预计划"><a href="#对象处理的预计划" class="headerlink" title="对象处理的预计划"></a>对象处理的预计划</h1><p>同样简单的部分，分析了两个对象：病人和护士的动作</p>
-<ul>
-<li><font color="pink">最好在纸面上开始你的计划，debug的过程非常艰难</font><blockquote>
-<p>对象</p>
-<blockquote>
-<p>目标<br>动作<br>环境和世界以及其他对象的影响</p>
-</blockquote>
-</blockquote>
-</li>
-</ul>
-<hr>
-<blockquote>
-<p>病人</p>
-<blockquote>
-<p>去医院-&gt;登记-&gt;等待护士<br>被治疗<br>回家</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>护士</p>
-<blockquote>
-<p>找到病人-&gt;带入诊室<br>休息(太过劳累时直接触发)</p>
-</blockquote>
-</blockquote>
-<hr>
-<ul>
-<li>对象的状态和行为</li>
-<li>需要被实现的目标</li>
-<li>可进行的动作</li>
-<li><em><strong>产生计划plan</strong></em></li>
-</ul>
-<h1 id="世界状态类"><a href="#世界状态类" class="headerlink" title="世界状态类"></a>世界状态类</h1><ul>
-<li>用字典存储世界状态</li>
-<li>完成了基本世界和世界状态的编写</li>
-<li>就是字典的一些基本函数，较为简单<blockquote>
-<p>新学习到的：</p>
-<blockquote>
-<p>使字典在unity上序列化表示<br>只读字段<br>需要复习的<br>unity中的Dictionary相关知识<br>set和get</p>
-</blockquote>
-</blockquote>
-<h1 id="动作类"><a href="#动作类" class="headerlink" title="动作类"></a>动作类</h1></li>
-<li>awaken()函数：在游戏对象生成时调用NavMeshAgent组件，写入字典</li>
-<li>IsAchevableGiven函数通过遍历字典preconditions，查询是否于此时的状态（上一个动作的effect）符合，函数如下：<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">IsAchievableGiven</span>(<span class="params">Dictionary&lt;<span class="built_in">string</span>,<span class="built_in">int</span>&gt; conditions</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">foreach</span>(KeyValuePair&lt;<span class="built_in">string</span>,<span class="built_in">int</span>&gt;p <span class="keyword">in</span> preconditions)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (!conditions.ContainsKey(p.Key))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>新学到的：<br>抽象类！</p>
-<blockquote>
-<p>abstract 不可以和static、virtual、final、native一起使用<br>声明为 abstract 成员可以不包括实现代码，但只要类中还有未实现的抽象成员(抽象方法)，那么这个类就是一个抽象类，抽象类的对象不能被实例化，通常作为被强制继承类必须实现某一成员，抽象类必须要有派生子类。并且，如果子类没有实现抽象类的所有方法，则子类也成为一个抽象类。<br>abstract方法只有方法头的声明，而用一个分号来代替方法体的定义；至于方法体的具体实现，那是由当前类的不同子类在他们各自的类定义中完成的。</p>
-</blockquote>
-</blockquote>
-<h1 id="Agent类"><a href="#Agent类" class="headerlink" title="Agent类"></a>Agent类</h1></li>
-<li>system.Linq，万能的查询语句，对数组，List，Dictionary进行高效操作(似乎有点像数据库的语法?)<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39108767/article/details/86648448">参考链接</a></li>
-<li>子目标类(SubGoal)中包含：查询该目标的字典，remove用于判断目标执行后是否仍保留。比如病人看病的目标在痊愈后就取消了，但护士休息的目标在执行后仍会保留</li>
-<li>Start函数中读取该对象的所有GAction类并存放在List中</li>
-<li>LateUpdate函数在Update后执行</li>
-</ul>
-<hr>
-<ul>
-<li>GPlanner部分会比较困难<br>2022&#x2F;4&#x2F;12&#x2F;22:46 累了，傻逼英语小组作业</li>
-</ul>
-<h1 id="Gplanner类"><a href="#Gplanner类" class="headerlink" title="Gplanner类"></a>Gplanner类</h1><ol>
-<li>定义了节点Node类，包括父节点，目前花费，状态和动作</li>
-<li>plan函数</li>
-</ol>
-<ul>
-<li><p>List用于存储所有可执行的动作</p>
-</li>
-<li><p>找到花费最少的路径，存储在result中</p>
-</li>
-<li><p>最后写入queue，返回</p>
-</li>
-<li><p>BuildGraph函数进行递归，为每一个可以执行的行动产生的结果建立一个新节点，若找到(GoalAchieved)在leave中加入该节点，若没找到，则进行递归，以新节点为父节点继续寻找</p>
-</li>
-<li><p>GoalAchieved函数，遍历所有goal的条件，若所有条件都在现在的状态中，则达成目标</p>
-</li>
-<li><p>ActionSubset函数，把除了当前已执行的动作以外的所有动作写入subset，继续参与递归</p>
-</li>
-<li><p>补一下忘了的insert函数，在把元素插入第i个元素之前，其余以此向后移动，本例中以此在n前插入其父节点，以便于存入队列中</p>
-</li>
-</ul>
-<hr>
-<p>好厉害的AI寻路，看到结果的一刻真的被震撼到，已经等不及要深入学习了，但是现在已经很晚了诶<br>2022&#x2F;4&#x2F;13&#x2F;23:27晚安！</p>
-<h1 id="GAgent的LateUpdate函数"><a href="#GAgent的LateUpdate函数" class="headerlink" title="GAgent的LateUpdate函数"></a>GAgent的LateUpdate函数</h1><ul>
-<li>如果当前可执行的动作已到达目标，即停止执行该动作</li>
-<li>调入planner部分：按优先级搜索所有该对象的目标</li>
-<li>对每一个子目标的每一步生成一个actionQueue，若找到路径，将该子目标设为当前子目标后退出循环</li>
-<li>下一部分是在执行完某一动作后，若该动作需要在执行后移除(remove)则将其移除；清空planner</li>
-<li>下一部分是执行动作部分，先将当前将要执行的步移出队列放入当前动作，随后寻找目标，调用AI寻路</li>
-<li>两个抽象函数都是用于控制动作是否进行，在有需要时调用。PrePerform控制动作开始，PostPerform控制动作结束</li>
-<li>关于如何从一个动作切换到另一个动作</li>
-</ul>
-<ol>
-<li>在一个动作正在执行时，即currentAction!&#x3D;null&amp;&amp;currentAction.runing进入下面部分：<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(currentAction!=<span class="literal">null</span>&amp;&amp;currentAction.running)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(currentAction.agent.hasPath&amp;&amp;currentAction.agent.remainingDistance&lt;<span class="number">1f</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(!invoked)</span><br><span class="line">                &#123;</span><br><span class="line">                    Invoke(<span class="string">&quot;CompleteAction&quot;</span>, currentAction.duration);</span><br><span class="line">                    invoked = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125; </span><br></pre></td></tr></table></figure></li>
-<li>在这里面，如果还未到达终点，则直接return</li>
-<li>若到达终点，在规定的秒数后调用CompleteAction完成动作，将running设为false，下一次执行时，不会进入该if，转而寻找执行下一个动作</li>
-</ol>
-<p><strong>其实有代码还是很好理解的，不过构建整个过程真的很了不起</strong></p>
-<hr>
-<p>接下来，在unity面板中链接每个对象的各个动作就行，非常简单</p>
-<h1 id="一些显示UI"><a href="#一些显示UI" class="headerlink" title="一些显示UI"></a>一些显示UI</h1><ul>
-<li><p>GAgentEditor<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/jfy307596479/article/details/84972848">Editor</a></p>
-<pre><code> unity editor是一个通用的编辑器，提供了unity内部对象的创建，预览，编辑的功能及可视化界面。​ 用于扩展editor的类需要放到名字为“Editor&quot;的文件夹中，这个文件夹可以直接放到”Assets“文件夹下，也可以是项目目录任何文件夹下的子文件夹，比如”Assets/BigWorld/Editor&quot;。
-</code></pre>
-</li>
-</ul>
-<p>————————————————</p>
-<ul>
-<li>Text<br>先来看看Instance吧，我都快忘记它了<br>第一个要看的是：属性：<br>set：在每次设置属性时执行，将某个变量设置为该值<br>get：在每次读取时执行，返回一个同类型变量<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个简单示例</span></span><br><span class="line"><span class="keyword">public</span> Vector3 pos&#123;</span><br><span class="line">    <span class="keyword">get</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">this</span>.transform.position);</span><br><span class="line">    &#125;<span class="comment">//get中return是必须的，读取时返回transform.position</span></span><br><span class="line">    <span class="keyword">set</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.transform.position=<span class="keyword">value</span>;</span><br><span class="line">    &#125;<span class="comment">//设置该属性是同时变动transform.position</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-instance是只读的对象，GWorld类调用Getworld返回world，WorldState类调用GetStates返回states，然后在text中将其输出</li>
-</ul>
-<h1 id="GInventory类"><a href="#GInventory类" class="headerlink" title="GInventory类"></a>GInventory类</h1><p>三个方法：</p>
-<ol>
-<li>添加item</li>
-<li>通过tag寻找item</li>
-<li>移出item<br>非常简单</li>
-</ol>
-<h1 id="各个对象的行为："><a href="#各个对象的行为：" class="headerlink" title="各个对象的行为："></a>各个对象的行为：</h1><ul>
-<li><em><strong>病人</strong></em><br>goal 1:isWaiting 优先级：3<br>action：<br>null -&gt; go to hospital -&gt; has arrived<br>has arrived -&gt; register -&gt; has registered<br>has registered -&gt; go to waiting room -&gt; isWaiting(在这时加入世界的病人队列并且加入Waiting和atHospital世界状态)</li>
-</ul>
-<p>goal 2:isTreated 优先级：5<br>action:<br>atHospital -&gt; GetTreated -&gt; is Treated</p>
-<ul>
-<li><p><em><strong>护士</strong></em><br>goal:treatPatient 优先级：3<br>Waiting&amp;&amp;free cubicle(注意他们是start节点里的世界状态) -&gt; get patient(调用remove将patient移出队列) -&gt; patientPickedup(同时将空闲的cubicle写入该patient的item，使其可以被GetTreated中的启动函数查找到，这解释了为什么要护士完成该步后病人才能开始第二轮移动)<br>patientPickedup -&gt; GoToCubicle -&gt;treatPatient</p>
-</li>
-<li><p><em><strong>cubicle小隔间</strong></em><br>和patient的方法类似<br>在世界开始时通过tag寻找并填入队列</p>
-</li>
-<li><p>在GAgent中加入了beliefs（WorldStates）变量调用当前对象状态<br>三种不同的WorldStates：</p>
-</li>
-</ul>
-<ol>
-<li>世界状态，显示在Text中</li>
-<li>对象状态，存储在beliefs中</li>
-<li>动作产生的effect，直接由currentstate记录</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
 
